@@ -6620,11 +6620,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lauta\\Escritorio\\Facultadovich\\4to\\DSI\\PPAI\\PPAIDSI\\PPAIDSI.csproj",
+      "projectUniqueName": "C:\\Users\\lauta\\Escritorio\\Facultadovich\\4to\\DSI\\PPAI\\PPAI2024_3K6_GN\\PPAIDSI\\PPAIDSI.csproj",
       "projectName": "PPAIDSI",
-      "projectPath": "C:\\Users\\lauta\\Escritorio\\Facultadovich\\4to\\DSI\\PPAI\\PPAIDSI\\PPAIDSI.csproj",
+      "projectPath": "C:\\Users\\lauta\\Escritorio\\Facultadovich\\4to\\DSI\\PPAI\\PPAI2024_3K6_GN\\PPAIDSI\\PPAIDSI.csproj",
       "packagesPath": "C:\\Users\\lauta\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lauta\\Escritorio\\Facultadovich\\4to\\DSI\\PPAI\\PPAIDSI\\obj\\",
+      "outputPath": "C:\\Users\\lauta\\Escritorio\\Facultadovich\\4to\\DSI\\PPAI\\PPAI2024_3K6_GN\\PPAIDSI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
