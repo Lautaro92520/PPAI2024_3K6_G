@@ -12,7 +12,7 @@ namespace PPAIDSI.Dominio
         private string descripcion { get; set; }
         private string historia { get; set; }
         private string nombre { get; set; }
-        private int periodoActualizacion { get; set; }
+        private DateTime periodoActualizacion { get; set; }
         private RegionVitivinicola region { get; set; }
 
         public string getNombre()

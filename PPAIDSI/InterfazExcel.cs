@@ -20,20 +20,18 @@ namespace PPAIDSI
 
         private void InterfazExcel_Load(object sender, EventArgs e)
         {
-            string filePath = @"ruta\del\archivo\input.xlsx";
+            string filePath = @"ruta";
             DataTable dataTable = new DataTable();
 
-            // Leer el archivo Excel
             using (var workbook = new XLWorkbook(filePath))
             {
-                var worksheet = workbook.Worksheet(1); // Trabaja con la primera hoja
+                var worksheet = workbook.Worksheet(1); 
                 bool firstRow = true;
 
                 foreach (var row in worksheet.RowsUsed())
                 {
                     if (firstRow)
                     {
-                        // Crear columnas en el DataTable
                         foreach (var cell in row.Cells())
                         {
                             dataTable.Columns.Add(cell.Value.ToString());
@@ -42,7 +40,6 @@ namespace PPAIDSI
                     }
                     else
                     {
-                        // Agregar filas al DataTable
                         dataTable.Rows.Add();
                         int i = 0;
                         foreach (var cell in row.Cells())

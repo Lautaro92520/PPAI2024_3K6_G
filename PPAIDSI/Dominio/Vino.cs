@@ -13,10 +13,12 @@ namespace PPAIDSI.Dominio
         private Image imagenEtiqueta { get; set; }
         private string nombre { get; set; }
         private int notaDeCataBodega { get; set; }
-        private int precioARS { get; set; }
+        private double precioARS { get; set; }
         private List<Varietal> varietales { get; set; }
         private List<Reseña> reseñas { get; set; }
         private Bodega bodega { get; set; }
+        private Enofilo enofilo { get; set; }
+        private Sommelier sommelier { get; set; }
 
         public bool tieneReseñaSommelier(DateTime desde, DateTime hasta)
         {
@@ -57,7 +59,7 @@ namespace PPAIDSI.Dominio
             return this.nombre;
         }
 
-        public int getPrecio()
+        public double getPrecio()
         {
             return this.precioARS;
         }
