@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33723.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPAIDSI", "PPAIDSI.csproj", "{D3C224AF-7A32-4585-AB2E-030816392757}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D3C224AF-7A32-4585-AB2E-030816392757}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3C224AF-7A32-4585-AB2E-030816392757}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3C224AF-7A32-4585-AB2E-030816392757}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3C224AF-7A32-4585-AB2E-030816392757}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4ED7E3AA-BA4A-4918-8E6F-EBEE67462822}
+	EndGlobalSection
+EndGlobal
