@@ -56,6 +56,10 @@
               "target": "Package",
               "version": "[3.0.2, )"
             },
+            "EPPlus": {
+              "target": "Package",
+              "version": "[7.1.2, )"
+            },
             "Microsoft.ReportingServices.ReportViewerControl.WebForms": {
               "target": "Package",
               "version": "[150.1620.0, )"

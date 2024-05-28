@@ -234,6 +234,7 @@
             Controls.Add(grbFechas);
             Name = "VentanaGenerarRanking";
             Text = "Generar Ranking";
+            Load += VentanaGenerarRanking_Load;
             grbFechas.ResumeLayout(false);
             grbFechas.PerformLayout();
             grbTipoRes.ResumeLayout(false);

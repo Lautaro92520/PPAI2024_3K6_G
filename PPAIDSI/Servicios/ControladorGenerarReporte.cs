@@ -27,7 +27,6 @@ namespace PPAIDSI.Servicios
         public void generarRanking()
         {
             _ventana.solicitarFechaDesdeHasta();
-
         }
 
         public void TomarFechaDesdeHasta(DateTime desde, DateTime hasta)
@@ -72,10 +71,11 @@ namespace PPAIDSI.Servicios
             foreach (Vino v in vinosOrdenados)
             {
                 string nombre = v.getNombre();
-                int precio = v.getPrecio();
+                double puntaje = v.pu
+                double precio = v.getPrecio();
                 List<string> nombres = v.getBodega();
                 string varietal = v.getDescripcionVarietales();
-                List<object> list = new List<object> { nombre, precio, nombres[0], nombres[1], nombres[2] };
+                List<object> list = new List<object> { nombre, precio, nombres[0], nombres[1], nombres[2], varietal };
                 lista.Add(list);
             }
             return lista;
@@ -83,8 +83,8 @@ namespace PPAIDSI.Servicios
 
         private List<Vino> ordenarSegunPromedio(List<Vino> vinos, List<double> puntajes)
         {
-            var vinosConPntajes = vinos.Zip(puntajes, (vino, puntaje) => new {Vino = vino, Puntaje = puntaje}).ToList();
-            var vinosOrdenadosPorPuntaje = vinosConPntajes.OrderBy(vp => vp.Vino).ToList();
+            var vinosConPuntajes = vinos.Zip(puntajes, (vino, puntaje) => new {Vino = vino, Puntaje = puntaje}).ToList();
+            var vinosOrdenadosPorPuntaje = vinosConPuntajes.OrderBy(vp => vp.Vino).ToList();
             return vinosOrdenadosPorPuntaje.Select(vp => vp.Vino).ToList();
         }
 

@@ -82,6 +82,9 @@ namespace PPAIDSI
             }
         }
 
+        private void VentanaGenerarRanking_Load(object sender, EventArgs e)
+        {
 
+        }
     }
 }
