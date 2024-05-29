@@ -52,41 +52,18 @@ namespace PPAIDSI.Datos
             return rafc;
         }
 
-        public DataTable ConsultaSQL(string strSql, List<Parametro> lst = null)
-        {
-
-            SqlCommand cmd = new SqlCommand();
-            DataTable tabla = new DataTable();
-
-            cnn.Open();
-            cmd.Connection = cnn;
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = strSql;
-
-            if (lst != null && lst.Count > 0)
-            {
-                foreach (Parametro p in lst)
-                {
-                    cmd.Parameters.AddWithValue(p.Nombre, p.Valor);
-                }
-            }
-
-            tabla.Load(cmd.ExecuteReader());
-            cnn.Close();
-
-            return tabla;
-        }
-
         public List<Vino> GetVinos()
         {
             List<Vino> lista = new List<Vino>();
 
             string query = "SELECT * FROM Vino";
 
-
             using (cnn)
             {
                 SqlCommand cmd = new SqlCommand();
+                cmd.Connection = cnn;
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = query;
                 cnn.Open();
 
                 SqlDataReader dr = cmd.ExecuteReader();
@@ -98,12 +75,40 @@ namespace PPAIDSI.Datos
                     double precio = (double)dr["precio_ars"];
                     Bodega bodega = new Bodega();
                     Sommelier sommelier = new Sommelier();
-                    Vino vino = new Vino(nombre, anada, nota, precio, bodega, sommelier);
+                    List<Reseña> reseñas = GetReseñas((int)dr["Id"]);
+                    Vino vino = new Vino(nombre, anada, nota, precio, bodega, sommelier, reseñas);
                     lista.Add(vino);
                 }
                 cnn.Close();
             }
             return lista;
+        }
+
+        private List<Reseña> GetReseñas(int id)
+        {
+            List<Reseña> reseñas = new List<Reseña>();
+            using (cnn) 
+            {
+                cnn.Open();
+
+                var cmd = new SqlCommand("SELECT * FROM Reseñas WHERE id_vino = @id", cnn);
+                cmd.Parameters.AddWithValue("@id", id);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+                using(dr)
+                {
+                    while (dr.Read())
+                    {
+                        string comentario = dr["comentario"].ToString();
+                        int es_premium = (int)dr["es_premium"];
+                        DateTime fecha = DateTime.Parse(dr["fecha_reseña"].ToString());
+                        int puntaje = (int)dr["puntaje"];
+                        Reseña res = new Reseña(comentario, es_premium, fecha, puntaje);
+                        reseñas.Add(res);
+                    }  
+                }
+            }
+            return reseñas;
         }
     }
 }

@@ -12,7 +12,7 @@ namespace PPAIDSI
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             //Application.Run(new VentanaGenerarRanking());
-            Application.Run(new InterfazExcel(new List<List<object>>()));
+            Application.Run(new VentanaGenerarRanking());
         }
     }
 }

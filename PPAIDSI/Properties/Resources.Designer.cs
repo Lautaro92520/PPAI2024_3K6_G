@@ -61,7 +61,7 @@ namespace PPAIDSI.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a .
+        ///   Busca una cadena traducida similar a Data Source=ARTEMISA\SQLEXPRESS01;Initial Catalog=PPAI_Bonvino;Integrated Security=True.
         /// </summary>
         internal static string cnnString {
             get {

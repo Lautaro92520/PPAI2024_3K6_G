@@ -2,6 +2,17 @@
 {
     public class Reseña
     {
+        private int es_premium;
+        private DateTime fecha;
+
+        public Reseña(string? comentario, int es_premium, DateTime fecha, int puntaje)
+        {
+            this.comentario = comentario;
+            this.es_premium = es_premium;
+            this.fecha = fecha;
+            this.puntaje = puntaje;
+        }
+
         private string comentario { get; set; }
         private string esPremium { get; set; }
         private DateTime fechaReseña { get; set; }

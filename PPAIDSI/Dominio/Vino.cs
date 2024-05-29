@@ -20,7 +20,7 @@ namespace PPAIDSI.Dominio
         private Enofilo enofilo { get; set; }
         private Sommelier sommelier { get; set; }
 
-        public Vino(string nombre, int anada, int nota, double precio, Bodega bodega, Sommelier somme)
+        public Vino(string nombre, int anada, int nota, double precio, Bodega bodega, Sommelier somme, List<Reseña> res)
         {
             this.nombre = nombre;
             this.añada = anada;
@@ -28,6 +28,7 @@ namespace PPAIDSI.Dominio
             this.precioARS = precio;
             this.bodega = bodega;
             this.sommelier = somme;
+            this.reseñas = res;
         }
 
         public void agregarVarietal(Varietal var)
