@@ -44,6 +44,7 @@
             rbtnPDF = new RadioButton();
             rbtnPantalla = new RadioButton();
             button1 = new Button();
+            btnSalir = new Button();
             grbFechas.SuspendLayout();
             grbTipoRes.SuspendLayout();
             grbVisualizacion.SuspendLayout();
@@ -224,11 +225,22 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += seleccionarFormaVisualizacion;
             // 
+            // btnSalir
+            // 
+            btnSalir.Location = new Point(294, 445);
+            btnSalir.Name = "btnSalir";
+            btnSalir.Size = new Size(86, 31);
+            btnSalir.TabIndex = 16;
+            btnSalir.Text = "Salir";
+            btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.Click += btnSalir_Click;
+            // 
             // VentanaGenerarRanking
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(398, 447);
+            ClientSize = new Size(392, 488);
+            Controls.Add(btnSalir);
             Controls.Add(grbVisualizacion);
             Controls.Add(grbTipoRes);
             Controls.Add(grbFechas);
@@ -267,5 +279,6 @@
         private RadioButton rbtnPDF;
         private RadioButton rbtnPantalla;
         private Button button1;
+        private Button btnSalir;
     }
 }

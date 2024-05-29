@@ -1,4 +1,5 @@
-﻿using PPAIDSI.Dominio;
+﻿using PPAIDSI.Datos;
+using PPAIDSI.Dominio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,8 @@ namespace PPAIDSI.Servicios
         private List<Vino> _vinosConReseña;
         private List<double> _promediosVinos;
         private List<List<object>> _datosVinos;
+        private List<Vino> _vinosOrdenados;
+        private List<double> _puntajesOrdenados;
 
         public ControladorGenerarReporte(VentanaGenerarRanking ventana)
         {
@@ -61,31 +64,37 @@ namespace PPAIDSI.Servicios
         {
             buscarVinos(_fechaDesde, _fechaHasta);
             calcularPromedio();
-            List<Vino> vinosOrdenados = ordenarSegunPromedio(_vinosConReseña, _promediosVinos);
-            _datosVinos = buscarDatosVinos(vinosOrdenados);
+            ordenarSegunPromedio(_vinosConReseña, _promediosVinos);
+            buscarDatosVinos(_vinosOrdenados, _puntajesOrdenados);
+            InterfazExcel interfaz = new InterfazExcel();
+            interfaz.exportarExcel(_datosVinos);
         }
 
-        private List<List<object>> buscarDatosVinos(List<Vino> vinosOrdenados)
+        private void buscarDatosVinos(List<Vino> vinosOrdenados, List<double> puntajes)
         {
+            int i = 0;
             List<List<object>> lista = new List<List<object>>();
             foreach (Vino v in vinosOrdenados)
             {
                 string nombre = v.getNombre();
-                double puntaje = v.pu
                 double precio = v.getPrecio();
                 List<string> nombres = v.getBodega();
                 string varietal = v.getDescripcionVarietales();
-                List<object> list = new List<object> { nombre, precio, nombres[0], nombres[1], nombres[2], varietal };
+                List<object> list = new List<object> { nombre, puntajes[i], precio, nombres[0], nombres[1], nombres[2], varietal };
                 lista.Add(list);
+                i++;
             }
-            return lista;
+            _datosVinos = lista;
         }
 
-        private List<Vino> ordenarSegunPromedio(List<Vino> vinos, List<double> puntajes)
+        private void ordenarSegunPromedio(List<Vino> vinos, List<double> puntajes)
         {
-            var vinosConPuntajes = vinos.Zip(puntajes, (vino, puntaje) => new {Vino = vino, Puntaje = puntaje}).ToList();
-            var vinosOrdenadosPorPuntaje = vinosConPuntajes.OrderBy(vp => vp.Vino).ToList();
-            return vinosOrdenadosPorPuntaje.Select(vp => vp.Vino).ToList();
+            List<int> indices = Enumerable.Range(0, vinos.Count).ToList();
+
+            indices.Sort((i, j) => puntajes[j].CompareTo(puntajes[i]));
+
+            _vinosOrdenados = indices.Select(i => vinos[i]).ToList();
+            _puntajesOrdenados = indices.Select(i => puntajes[i]).ToList();
         }
 
         private void calcularPromedio()
@@ -99,7 +108,7 @@ namespace PPAIDSI.Servicios
 
         private void buscarVinos(DateTime desde, DateTime hasta)
         {
-            List<Vino> vinos = new List<Vino>(); //HelperDB
+            List<Vino> vinos = HelperDB.GetInstance().GetVinos();
             foreach (Vino v in vinos)
             {
                 if (v.tieneReseñaSommelier(desde, hasta))

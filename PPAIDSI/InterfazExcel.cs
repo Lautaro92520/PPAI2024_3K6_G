@@ -20,11 +20,15 @@ namespace PPAIDSI
     public partial class InterfazExcel : Form
     {
         public List<List<object>> _listaListas;
-        public InterfazExcel(List<List<object>> lista)
+        public InterfazExcel()
         {
             InitializeComponent();
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
-            _listaListas = lista;
+        }
+
+        public void exportarExcel(List<List<object>> datosVinos)
+        {
+            _listaListas = datosVinos;
         }
 
         private void InterfazExcel_Load(object sender, EventArgs e)

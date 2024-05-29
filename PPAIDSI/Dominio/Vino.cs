@@ -20,6 +20,26 @@ namespace PPAIDSI.Dominio
         private Enofilo enofilo { get; set; }
         private Sommelier sommelier { get; set; }
 
+        public Vino(string nombre, int anada, int nota, double precio, Bodega bodega, Sommelier somme)
+        {
+            this.nombre = nombre;
+            this.añada = anada;
+            this.notaDeCataBodega = nota;
+            this.precioARS = precio;
+            this.bodega = bodega;
+            this.sommelier = somme;
+        }
+
+        public void agregarVarietal(Varietal var)
+        {
+            varietales.Add(var);
+        }
+
+        public void agregarResena(Reseña rese)
+        {
+            reseñas.Add(rese);
+        }
+
         public bool tieneReseñaSommelier(DateTime desde, DateTime hasta)
         {
             foreach (Reseña r in this.reseñas)
