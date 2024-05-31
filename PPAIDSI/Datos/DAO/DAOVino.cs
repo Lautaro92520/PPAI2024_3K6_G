@@ -49,7 +49,7 @@ namespace PPAIDSI.Datos.DAO
         public List<Varietal> GetVarietalesByIdVino(int id)
         {
             List<Varietal> varietales = new List<Varietal>();
-            string query = "SELECT * FROM Varietal WHERE id_vino Like '%" + id + "%'";
+            string query = "SELECT * FROM Varietal WHERE Id_Vino =" + id;
 
             List<Parametro> parametros = new List<Parametro>();
             parametros.Add(new Parametro("@Id_Vino", id));

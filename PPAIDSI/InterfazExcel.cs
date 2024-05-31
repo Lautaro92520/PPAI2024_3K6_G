@@ -50,7 +50,7 @@ namespace PPAIDSI
                     range.Style.Fill.BackgroundColor.SetColor(Color.LightGray);
                 }
 
-                for (int i = 0; i < _listaListas.Count; i++)
+                for (int i = 0; i < 10; i++)
                 {
                     var l = _listaListas[i];
                     worksheet.Cells[i + 2, 1].Value = l[0];
