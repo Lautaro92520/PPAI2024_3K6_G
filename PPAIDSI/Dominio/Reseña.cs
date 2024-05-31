@@ -2,24 +2,23 @@
 {
     public class Reseña
     {
-        private int es_premium;
-        private DateTime fecha;
-
-        public Reseña(string? comentario, int es_premium, DateTime fecha, int puntaje)
-        {
-            this.comentario = comentario;
-            this.es_premium = es_premium;
-            this.fecha = fecha;
-            this.puntaje = puntaje;
-        }
-
         private string comentario { get; set; }
-        private string esPremium { get; set; }
+        private bool esPremium { get; set; }
         private DateTime fechaReseña { get; set; }
         private int puntaje { get; set; }
         private Vino vino { get; set; }
         private Enofilo enofilo { get; set; }
         private Sommelier sommelier { get; set; }
+
+        public Reseña(string comentario, bool esPremium, DateTime fecha, int puntaje, Sommelier sommelier)
+        {
+            this.comentario = comentario;
+            this.esPremium = esPremium;
+            this.fechaReseña = fecha;
+            this.puntaje = puntaje;
+            this.sommelier = sommelier;
+        }
+
 
         public bool sosDePeriodo(DateTime desde, DateTime hasta)
         {

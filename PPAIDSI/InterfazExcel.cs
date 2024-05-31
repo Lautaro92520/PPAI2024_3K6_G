@@ -29,18 +29,7 @@ namespace PPAIDSI
         public void exportarExcel(List<List<object>> datosVinos)
         {
             _listaListas = datosVinos;
-        }
-
-        private void InterfazExcel_Load(object sender, EventArgs e)
-        {
             var filePath = "RankingVinos.xlsx";
-
-            List<object> lista1 = new List<object> { 1, "veinte", 3, 4, "lol", 6, 7};  
-            List<object> lista2 = new List<object> { 1, 2, "dfer", 4, "lolds", 6, 7};  
-            List<object> lista3 = new List<object> { 1, "gte", 3, 4, "lolete", 6, 7};  
-            _listaListas.Add(lista1);
-            _listaListas.Add(lista2);
-            _listaListas.Add(lista3);
 
             using (var package = new ExcelPackage())
             {
@@ -49,9 +38,9 @@ namespace PPAIDSI
                 worksheet.Cells[1, 2].Value = "Calificación";
                 worksheet.Cells[1, 3].Value = "Precio";
                 worksheet.Cells[1, 4].Value = "Bodega";
-                worksheet.Cells[1, 5].Value = "Varietal";
-                worksheet.Cells[1, 6].Value = "Región";
-                worksheet.Cells[1, 7].Value = "País";
+                worksheet.Cells[1, 5].Value = "Region";
+                worksheet.Cells[1, 6].Value = "Pais";
+                worksheet.Cells[1, 7].Value = "Varietal";
 
                 using (var range = worksheet.Cells[1, 1, 1, 7])
                 {
@@ -72,7 +61,7 @@ namespace PPAIDSI
                     worksheet.Cells[i + 2, 6].Value = l[5];
                     worksheet.Cells[i + 2, 7].Value = l[6];
                 }
- 
+
                 worksheet.Cells[worksheet.Dimension.Address].AutoFitColumns();
 
                 var fileInfo = new FileInfo(filePath);
@@ -87,6 +76,11 @@ namespace PPAIDSI
             }
 
             Environment.Exit(0);
+        }
+
+        private void InterfazExcel_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

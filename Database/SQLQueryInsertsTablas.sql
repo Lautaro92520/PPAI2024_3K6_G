@@ -14,12 +14,12 @@ INSERT INTO RegionVitivinicola (descripcion, nombre, id_provincia) VALUES ('Regi
 INSERT INTO RegionVitivinicola (descripcion, nombre, id_provincia) VALUES ('Otra regi�n vin�cola', 'Valle del Pedernal', 2);
 GO
 
-INSERT INTO Bodega (coordenadas_ubicacion, descripcion, historia, nombre, periodo_actualizacion, id_region) VALUES ('-32.889458, -68.845839', 'Bodega con historia', 'Fundada en 1900', 'Bodega Norton', '0000-04-00', 1);
-INSERT INTO Bodega (coordenadas_ubicacion, descripcion, historia, nombre, periodo_actualizacion, id_region) VALUES ('-31.537500, -68.525000', 'Bodega reconocida', 'Fundada en 1950', 'Bodega Graffigna', '0000-04-00', 2);
+INSERT INTO Bodega (coordenadas_ubicacion, descripcion, historia, nombre, periodo_actualizacion, id_region) VALUES ('-32.889458, -68.845839', 'Bodega con historia', 'Fundada en 1900', 'Bodega Norton', '2024-04-01 00:00:00', 1);
+INSERT INTO Bodega (coordenadas_ubicacion, descripcion, historia, nombre, periodo_actualizacion, id_region) VALUES ('-31.537500, -68.525000', 'Bodega reconocida', 'Fundada en 1950', 'Bodega Graffigna', '2024-04-01 00:00:00', 2);
 GO
 
-INSERT INTO Enofilo (apellido, nombre, imagen_perfil) VALUES ('L�pez', 'Pedro', 'pedro.jpg');
-INSERT INTO Enofilo (apellido, nombre, imagen_perfil) VALUES ('Rodr�guez', 'Ana', 'ana.jpg');
+INSERT INTO Enofilo (apellido, nombre, imagen_perfil) VALUES ('Lopez', 'Pedro', 'pedro.jpg');
+INSERT INTO Enofilo (apellido, nombre, imagen_perfil) VALUES ('Rodriguez', 'Ana', 'ana.jpg');
 GO
 
 INSERT INTO Vino (nombre, anada, nota_cata_bodega, ruta_imagen_etiqueta, precio_ars, id_bodega, id_enofilo) VALUES ('Malbec Reserva', 2018, 'Notas de frutas rojas y roble', 'malbec.jpg', 1500.00, 1, 1)
@@ -99,19 +99,19 @@ INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier
 INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Aromas florales encantadores, perfecto como aperitivo.', 0, '2024-05-28', 4, 1, 5)
 INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Frutal y fresco, buen vino para el precio.', 0, '2024-05-28', 4, 2, 6)
 INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Complejo y con buen cuerpo, destaca por sus notas de tabaco.', 1, '2024-05-28', 4, 7, 7)
-INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('C�trico y refrescante, ideal para mariscos.', 0, '2024-05-28', 4, 2, 8)
+INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Citrico y refrescante, ideal para mariscos.', 0, '2024-05-28', 4, 2, 8)
 INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Notas de frutas rojas y pimiento, muy interesante.', 1, '2024-05-28', 4, 1, 9)
 INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Fresco y ligero, perfecto para d�as calurosos.', 0, '2024-05-28', 4, 2, 10)
 INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Un Merlot redondo, con taninos suaves y un final persistente.', 0, '2024-05-29', 5, 10, 1)
 INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Chardonnay con un buen equilibrio entre acidez y fruta.', 1, '2024-05-29', 4, 1, 2)
 INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Syrah con mucha personalidad, especiado y robusto.', 0, '2024-05-29', 4, 2, 3)
 INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Pinot Noir elegante, con notas de frutas rojas y un toque terroso.', 1, '2024-05-29', 4, 1, 4)
-INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Torront�s fresco y arom�tico, ideal para una tarde de verano.', 0, '2024-05-29', 4, 6, 5)
-INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Bonarda f�cil de beber, con buena relaci�n calidad-precio.', 0, '2024-05-29', 4, 1, 6)
+INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Torrontos fresco y arom�tico, ideal para una tarde de verano.', 0, '2024-05-29', 4, 6, 5)
+INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Bonarda facil de beber, con buena relaci�n calidad-precio.', 0, '2024-05-29', 4, 1, 6)
 INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Tempranillo bien estructurado, con notas de fruta madura y especias.', 1, '2024-05-29', 4, 2, 7)
 INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Sauvignon Blanc vivaz, con una acidez refrescante.', 0, '2024-05-29', 4, 5, 8)
 INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Cabernet Franc equilibrado, con notas herbales y frutales.', 1, '2024-05-29', 4, 2, 9)
-INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Rosado de Syrah ligero y refrescante, perfecto para un d�a caluroso.', 0, '2024-05-29', 4, 4, 10)
+INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Rosado de Syrah ligero y refrescante, perfecto para un dia caluroso.', 0, '2024-05-29', 4, 4, 10)
 INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Equilibrado y con buen cuerpo, un vino tinto excelente.', 1, '2024-05-29', 5, 3, 1);
 INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Notas cítricas y frescas, perfecto para un día soleado.', 0, '2024-05-30', 4, 4, 2);
 INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Un vino robusto con toques de chocolate.', 1, '2024-05-27', 5, 5, 3);
@@ -136,5 +136,4 @@ INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_enofilo, 
 INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_enofilo, id_vino) VALUES ('Refrescante y afrutado, excelente para el verano.', 0, '2024-05-18', 4, 2, 10);
 INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_enofilo, id_vino) VALUES ('Intenso y con buen cuerpo.', 1, '2024-05-17', 5, 3, 11);
 INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_enofilo, id_vino) VALUES ('Sutil y elegante, con notas de frutas rojas.', 0, '2024-05-16', 4, 4, 12);
-
 GO

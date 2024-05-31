@@ -10,6 +10,11 @@ namespace PPAIDSI.Dominio
     {
         private string nombre { get; set; }
 
+        public Pais() { }
+        public Pais(string nombre)
+        {
+            this.nombre = nombre;
+        }
         public string getNombre()
         {
             return this.nombre;

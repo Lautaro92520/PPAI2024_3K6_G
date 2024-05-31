@@ -12,5 +12,13 @@ namespace PPAIDSI.Dominio
         private string notaPresentacion { get; set; }
         private DateTime fechaValidacion { get; set; }
 
+        public Sommelier() { }
+
+        public Sommelier(string nombre, string nota, DateTime fecha)
+        {
+            this.nombre = nombre;
+            this.notaPresentacion = nota;
+            this.fechaValidacion = fecha;
+        }
     }
 }

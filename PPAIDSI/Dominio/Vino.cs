@@ -12,23 +12,22 @@ namespace PPAIDSI.Dominio
         private int añada { get; set; }
         private Image imagenEtiqueta { get; set; }
         private string nombre { get; set; }
-        private int notaDeCataBodega { get; set; }
-        private double precioARS { get; set; }
+        private string notaDeCataBodega { get; set; }
+        private float precioARS { get; set; }
         private List<Varietal> varietales { get; set; }
         private List<Reseña> reseñas { get; set; }
         private Bodega bodega { get; set; }
         private Enofilo enofilo { get; set; }
-        private Sommelier sommelier { get; set; }
 
-        public Vino(string nombre, int anada, int nota, double precio, Bodega bodega, Sommelier somme, List<Reseña> res)
+        public Vino(string nombre, int anada, string nota, float precio, Bodega bodega, List<Reseña> res, List<Varietal> varietales)
         {
             this.nombre = nombre;
             this.añada = anada;
             this.notaDeCataBodega = nota;
             this.precioARS = precio;
             this.bodega = bodega;
-            this.sommelier = somme;
             this.reseñas = res;
+            this.varietales = varietales;
         }
 
         public void agregarVarietal(Varietal var)
