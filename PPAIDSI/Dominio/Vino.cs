@@ -30,16 +30,6 @@ namespace PPAIDSI.Dominio
             this.varietales = varietales;
         }
 
-        public void agregarVarietal(Varietal var)
-        {
-            varietales.Add(var);
-        }
-
-        public void agregarResena(Reseña rese)
-        {
-            reseñas.Add(rese);
-        }
-
         public bool tieneReseñaSommelier(DateTime desde, DateTime hasta)
         {
             foreach (Reseña r in this.reseñas)
@@ -95,11 +85,16 @@ namespace PPAIDSI.Dominio
 
         public string getDescripcionVarietales()
         {
+            bool primero = true;
             string descripciones = "";
             foreach (Varietal v in this.varietales)
             {
-                string str = v.getDescripcion();
-                descripciones += str + ", ";
+                if (primero != true)
+                {
+                    descripciones += ", ";
+                }
+                descripciones += v.getDescripcion();
+                primero = false;
             }
             return descripciones;
         }

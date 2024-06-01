@@ -34,25 +34,6 @@ namespace PPAIDSI.Datos
             return instance;
         }
 
-        public int EjecutarSQL(string strSql, List<Parametro> lst)
-        {
-            int rafc = 0;
-            SqlCommand cmd = new SqlCommand();
-            cnn.Open();
-            cmd.Connection = cnn;
-            cmd.CommandText = strSql;
-
-            foreach (Parametro p in lst)
-            {
-                cmd.Parameters.AddWithValue(p.Nombre, p.Valor);
-            }
-
-            rafc = cmd.ExecuteNonQuery();
-            cnn.Close();
-
-            return rafc;
-        }
-
         public DataTable ConsultaSQL(string strSql, List<Parametro> lst = null)
         {
             SqlCommand cmd = new SqlCommand();

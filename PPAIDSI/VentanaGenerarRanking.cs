@@ -25,12 +25,11 @@ namespace PPAIDSI
         private void seleccionarGenerarRanking()
         {
             habilitarVentana();
-            _controlador.generarRanking();
         }
 
         public void habilitarVentana()
         {
-
+            _controlador.generarRanking();
         }
 
         public void solicitarFechaDesdeHasta()
@@ -41,11 +40,13 @@ namespace PPAIDSI
         public void solicitarTipoReseña()
         {
             grbTipoRes.Enabled = true;
+            grbFechas.Enabled = false;
         }
 
         public void solicitarFormaVisualizacion()
         {
             grbVisualizacion.Enabled = true;
+            grbTipoRes.Enabled = false;
         }
 
         public void solicitarConfirmacion()
@@ -82,10 +83,6 @@ namespace PPAIDSI
             }
         }
 
-        private void VentanaGenerarRanking_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {

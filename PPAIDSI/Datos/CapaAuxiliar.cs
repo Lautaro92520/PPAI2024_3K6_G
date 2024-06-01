@@ -12,9 +12,9 @@ using System.Threading.Tasks;
 using static ClosedXML.Excel.XLPredefinedFormat;
 using SystemDateTime = System.DateTime;
 
-namespace PPAIDSI.Datos.DAO
+namespace PPAIDSI.Datos
 {
-    public class DAOVino : IDAOVino
+    public class CapaAuxiliar
     {
         public List<Vino> GetVinoByFilter(string nombre)
         {
@@ -174,7 +174,7 @@ namespace PPAIDSI.Datos.DAO
         public List<Reseña> GetResenasByIdVino(int id)
         {
             List<Reseña> reseñas = new List<Reseña>();
-            string query = "SELECT * FROM Resena WHERE id_vino Like '%" + id + "%'";  
+            string query = "SELECT * FROM Resena WHERE id_vino Like '%" + id + "%'";
 
             List<Parametro> parametros = new List<Parametro>();
             parametros.Add(new Parametro("@Id_Vino", id));
@@ -197,7 +197,7 @@ namespace PPAIDSI.Datos.DAO
 
         private Sommelier GetSommelierByID(int idR)
         {
-            Sommelier sommelier = new Sommelier(); 
+            Sommelier sommelier = new Sommelier();
             string query = "SELECT * FROM Sommelier WHERE id = " + idR;
 
             List<Parametro> parametros = new List<Parametro>();

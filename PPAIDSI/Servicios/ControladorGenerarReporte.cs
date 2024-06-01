@@ -1,5 +1,4 @@
 ﻿using PPAIDSI.Datos;
-using PPAIDSI.Datos.DAO;
 using PPAIDSI.Dominio;
 using System;
 using System.Collections.Generic;
@@ -12,7 +11,6 @@ namespace PPAIDSI.Servicios
     public class ControladorGenerarReporte
     {
         private VentanaGenerarRanking _ventana;
-        private int paso;
         private DateTime _fechaDesde;
         private DateTime _fechaHasta;
         private bool _sommelier;
@@ -23,12 +21,12 @@ namespace PPAIDSI.Servicios
         private List<Vino> _vinosOrdenados = new List<Vino>();
         private List<double> _puntajesOrdenados = new List<double>();
 
-        private IDAOVino daoVino;
+        private CapaAuxiliar capaAuxiliar;
 
         public ControladorGenerarReporte(VentanaGenerarRanking ventana)
         {
             _ventana = ventana;
-            daoVino = new DAOVino();
+            capaAuxiliar = new CapaAuxiliar();
         }
 
         public void generarRanking()
@@ -112,7 +110,7 @@ namespace PPAIDSI.Servicios
 
         private void buscarVinos(DateTime desde, DateTime hasta)
         {
-            List<Vino> vinos = daoVino.GetVinoByFilter("");
+            List<Vino> vinos = capaAuxiliar.GetVinoByFilter("");
             foreach (Vino v in vinos)
             {
                 if (v.tieneReseñaSommelier(desde, hasta))
