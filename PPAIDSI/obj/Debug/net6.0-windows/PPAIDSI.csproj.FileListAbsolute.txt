@@ -275,5 +275,4 @@ C:\Users\lauta\Escritorio\Facultadovich\4to\DSI\PPAI\PPAI2024_3K6_GN\PPAIDSI\bin
 C:\Users\lauta\Escritorio\Facultadovich\4to\DSI\PPAI\PPAI2024_3K6_GN\PPAIDSI\bin\Debug\net6.0-windows\Microsoft.IO.RecyclableMemoryStream.dll
 C:\Users\lauta\Escritorio\Facultadovich\4to\DSI\PPAI\PPAI2024_3K6_GN\PPAIDSI\bin\Debug\net6.0-windows\System.Security.Cryptography.Pkcs.dll
 C:\Users\lauta\Escritorio\Facultadovich\4to\DSI\PPAI\PPAI2024_3K6_GN\PPAIDSI\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Security.Cryptography.Pkcs.dll
-C:\Users\lauta\Escritorio\Facultadovich\4to\DSI\PPAI\PPAI2024_3K6_GN\PPAIDSI\obj\Debug\net6.0-windows\PPAIDSI.InterfazExcel.resources
 C:\Users\lauta\Escritorio\Facultadovich\4to\DSI\PPAI\PPAI2024_3K6_GN\PPAIDSI\obj\Debug\net6.0-windows\PPAIDSI.Properties.Resources.resources

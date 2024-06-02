@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -84,9 +85,21 @@ namespace PPAIDSI
         }
 
 
-        private void btnSalir_Click(object sender, EventArgs e)
+        public void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        public void mostrarExcel()
+        {
+            var process = Process.Start(new ProcessStartInfo("RankingVinos.xlsx") { UseShellExecute = true });
+
+            if (process != null)
+            {
+                process.WaitForExit();
+            }
+
+            Environment.Exit(0);
         }
     }
 }

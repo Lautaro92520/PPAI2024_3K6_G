@@ -68,8 +68,8 @@ namespace PPAIDSI.Servicios
             calcularPromedio();
             ordenarSegunPromedio(_vinosConReseña, _promediosVinos);
             buscarDatosVinos(_vinosOrdenados, _puntajesOrdenados);
-            InterfazExcel interfaz = new InterfazExcel();
-            interfaz.exportarExcel(_datosVinos);
+            InterfazExcel.exportarExcel(_datosVinos);
+            _ventana.mostrarExcel();
         }
 
         private void buscarDatosVinos(List<Vino> vinosOrdenados, List<double> puntajes)
@@ -118,6 +118,6 @@ namespace PPAIDSI.Servicios
                     _vinosConReseña.Add(v);
                 }
             }
-        }
+        }   
     }
 }

@@ -17,18 +17,11 @@ using LicenseContext = OfficeOpenXml.LicenseContext;
 
 namespace PPAIDSI
 {
-    public partial class InterfazExcel : Form
-    {
-        public List<List<object>> _listaListas;
-        public InterfazExcel()
+    public interface InterfazExcel
+    {    
+        public static void exportarExcel(List<List<object>> datosVinos)
         {
-            InitializeComponent();
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
-        }
-
-        public void exportarExcel(List<List<object>> datosVinos)
-        {
-            _listaListas = datosVinos;
             var filePath = "RankingVinos.xlsx";
 
             using (var package = new ExcelPackage())
@@ -56,7 +49,7 @@ namespace PPAIDSI
                 range2.Style.Fill.PatternType = ExcelFillStyle.Solid;
                 range2.Style.Fill.BackgroundColor.SetColor(Color.LightGray);
                 range2.Style.Border.Bottom.Style = ExcelBorderStyle.Thick;
- 
+
                 var range3 = worksheet.Cells[11, 1, 11, 8];
                 range3.Style.Border.Bottom.Style = ExcelBorderStyle.Thick;
 
@@ -65,7 +58,7 @@ namespace PPAIDSI
 
                 for (int i = 0; i < 10; i++)
                 {
-                    var l = _listaListas[i];
+                    var l = datosVinos[i];
                     worksheet.Cells[i + 2, 1].Value = i + 1;
                     worksheet.Cells[i + 2, 2].Value = l[0];
                     worksheet.Cells[i + 2, 3].Value = l[1];
@@ -81,15 +74,6 @@ namespace PPAIDSI
                 var fileInfo = new FileInfo(filePath);
                 package.SaveAs(fileInfo);
             }
-
-            var process = Process.Start(new ProcessStartInfo(filePath) { UseShellExecute = true });
-
-            if (process != null)
-            {
-                process.WaitForExit();
-            }
-
-            Environment.Exit(0);
         }
     }
 }
