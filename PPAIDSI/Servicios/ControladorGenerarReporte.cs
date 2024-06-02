@@ -116,7 +116,13 @@ namespace PPAIDSI.Servicios
                 if (v.tieneReseñaSommelier(desde, hasta))
                 {
                     _vinosConReseña.Add(v);
-                }
+                }                      
+            }
+
+            if (_vinosConReseña.Count == 0)
+            {
+                MessageBox.Show("No hay vinos con reseñas de sommelier en las fechas especificadas. El programa se cerrará.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Environment.Exit(0);
             }
         }   
     }

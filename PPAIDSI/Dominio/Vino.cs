@@ -61,7 +61,12 @@ namespace PPAIDSI.Dominio
                     }
                 }                      
             }
-            return Math.Round(puntaje / cantidad, 1); 
+            return calcularPromedio(puntaje, cantidad);          
+        }
+
+        public double calcularPromedio(float puntaje, int cantidad)
+        {
+            return Math.Round(puntaje / cantidad, 1);
         }
 
         public string getNombre()
