@@ -36,10 +36,17 @@ namespace PPAIDSI.Servicios
 
         public void TomarFechaDesdeHasta(DateTime desde, DateTime hasta)
         {
-            validarPeriodo(desde, hasta);
-            _fechaDesde = desde;
-            _fechaHasta = hasta;
-            _ventana.solicitarTipoReseña();
+            int val = validarPeriodo(desde, hasta);
+            if (val == 1)
+            {
+                _fechaDesde = desde;
+                _fechaHasta = hasta;
+                _ventana.solicitarTipoReseña();
+            }
+            else
+            {
+                _ventana.solicitarFechaDesdeHasta();
+            }
         }
 
         public void tomarSeleccionSommelier()
@@ -54,12 +61,15 @@ namespace PPAIDSI.Servicios
             _ventana.solicitarConfirmacion();
         }
 
-        private void validarPeriodo(DateTime desde, DateTime hasta)
+        private int validarPeriodo(DateTime desde, DateTime hasta)
         {
+            int val = 1;
             if (desde > hasta)
             {
-                MessageBox.Show("Las fechas ingresadas no son validas", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); ;
+                MessageBox.Show("Las fechas ingresadas no son validas", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                val = 0;
             }
+            return val;
         }
 
         public void tomarConfirmacion()
@@ -70,6 +80,13 @@ namespace PPAIDSI.Servicios
             buscarDatosVinos(_vinosOrdenados, _puntajesOrdenados);
             InterfazExcel.exportarExcel(_datosVinos);
             _ventana.mostrarExcel();
+            finCU();
+        }
+
+        private void finCU()
+        {
+            MessageBox.Show("El CU ha finalizado", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Environment.Exit(0);
         }
 
         private void buscarDatosVinos(List<Vino> vinosOrdenados, List<double> puntajes)

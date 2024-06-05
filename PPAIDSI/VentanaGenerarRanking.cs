@@ -98,8 +98,6 @@ namespace PPAIDSI
             {
                 process.WaitForExit();
             }
-
-            Environment.Exit(0);
         }
     }
 }
