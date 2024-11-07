@@ -15,3 +15,5 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = PPAIDSI
 build_property.ProjectDir = C:\Users\lauta\Escritorio\Facultadovich\4to\DSI\PPAI\PPAI2024_3K6_GN\PPAIDSI\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 

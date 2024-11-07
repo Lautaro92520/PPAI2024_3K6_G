@@ -32,14 +32,10 @@ namespace PPAIDSI.Dominio
             return this.nombre;
         }
 
-        public string getRegion()
+        public RegionVitivinicola getRegion()
         {
-            return this.region.getNombre();
+            return region;
         }
 
-        public string getPais()
-        {
-            return this.region.getPais();
-        }
     }
 }

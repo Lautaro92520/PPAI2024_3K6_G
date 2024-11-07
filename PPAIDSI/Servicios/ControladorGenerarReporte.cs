@@ -13,20 +13,16 @@ namespace PPAIDSI.Servicios
         private VentanaGenerarRanking _ventana;
         private DateTime _fechaDesde;
         private DateTime _fechaHasta;
-        private bool _sommelier;
-        private bool _excel;
-        private List<Vino> _vinosConReseña = new List<Vino>();
-        private List<double> _promediosVinos = new List<double>();
+        private List<(Vino, double)> _vinosConPromedio = new List<(Vino, double)>();   
         private List<List<object>> _datosVinos = new List<List<object>>();
-        private List<Vino> _vinosOrdenados = new List<Vino>();
-        private List<double> _puntajesOrdenados = new List<double>();
+        private List<(Vino, double)> _vinosConPromedioOrdenados;
 
-        private CapaAuxiliar capaAuxiliar;
+        private IEstrategiaReseñas _estrategia;
+        private bool _excel;
 
         public ControladorGenerarReporte(VentanaGenerarRanking ventana)
         {
             _ventana = ventana;
-            capaAuxiliar = new CapaAuxiliar();
         }
 
         public void generarRanking()
@@ -51,8 +47,13 @@ namespace PPAIDSI.Servicios
 
         public void tomarSeleccionSommelier()
         {
-            _sommelier = true;
+            crearEstrategia();
             _ventana.solicitarFormaVisualizacion();
+        }
+
+        private void crearEstrategia()
+        {
+            _estrategia = new EstrategiaSommelier();
         }
 
         public void TomarSeleccionExcel()
@@ -74,13 +75,17 @@ namespace PPAIDSI.Servicios
 
         public void tomarConfirmacion()
         {
-            buscarVinos(_fechaDesde, _fechaHasta);
-            calcularPromedio();
-            ordenarSegunPromedio(_vinosConReseña, _promediosVinos);
-            buscarDatosVinos(_vinosOrdenados, _puntajesOrdenados);
+            buscarVinos();
+            ordenarSegunPromedio();
+            buscarDatosVinos(_vinosConPromedioOrdenados);
             InterfazExcel.exportarExcel(_datosVinos);
             _ventana.mostrarExcel();
             finCU();
+        }
+
+        private void buscarVinos()
+        {
+            _vinosConPromedio = _estrategia.buscarVinos(_fechaDesde, _fechaHasta);
         }
 
         private void finCU()
@@ -89,58 +94,40 @@ namespace PPAIDSI.Servicios
             Environment.Exit(0);
         }
 
-        private void buscarDatosVinos(List<Vino> vinosOrdenados, List<double> puntajes)
+        private void buscarDatosVinos(List<(Vino, double)> vinosConPromedios)
         {
-            int i = 0;
+            List<Pais> paises = CapaAuxiliar.GetPaises();
             List<List<object>> lista = new List<List<object>>();
-            foreach (Vino v in vinosOrdenados)
+            foreach (var I in vinosConPromedios)
             {
-                string nombre = v.getNombre();
-                double precio = v.getPrecio();
-                List<string> nombres = v.getBodega();
-                string varietal = v.getDescripcionVarietales();
-                List<object> list = new List<object> { nombre, puntajes[i], precio, nombres[0], nombres[1], nombres[2], varietal };
+                string nombre = I.Item1.getNombre();
+                double precio = I.Item1.getPrecio();
+                Bodega bodega = I.Item1.getBodega();
+                string bodegaN = bodega.getNombre();
+                RegionVitivinicola region = I.Item1.getRegion();
+                string regionN = region.getNombre();
+                Pais pais = new Pais();
+                
+                foreach (Pais p in paises)
+                {
+                    if (p.esTuRegion(regionN))
+                    {
+                        pais = p;
+                    }
+                }      
+
+                string paisN = pais.getNombre();
+                string varietal = I.Item1.getDescripcionVarietales();
+                List<object> list = new List<object> { nombre, I.Item2, precio, bodegaN, regionN, paisN, varietal };
                 lista.Add(list);
-                i++;
             }
             _datosVinos = lista;
         }
 
-        private void ordenarSegunPromedio(List<Vino> vinos, List<double> puntajes)
+        private void ordenarSegunPromedio()
         {
-            List<int> indices = Enumerable.Range(0, vinos.Count).ToList();
-
-            indices.Sort((i, j) => puntajes[j].CompareTo(puntajes[i]));
-
-            _vinosOrdenados = indices.Select(i => vinos[i]).ToList();
-            _puntajesOrdenados = indices.Select(i => puntajes[i]).ToList();
+            _vinosConPromedioOrdenados = _vinosConPromedio.OrderByDescending(v => v.Item2).ToList();
         }
 
-        private void calcularPromedio()
-        {
-            foreach (Vino v in _vinosConReseña)
-            {
-                double pro = v.obtenerPromedio(_fechaDesde, _fechaHasta);
-                _promediosVinos.Add(pro);
-            }
-        }
-
-        private void buscarVinos(DateTime desde, DateTime hasta)
-        {
-            List<Vino> vinos = capaAuxiliar.GetVinoByFilter("");
-            foreach (Vino v in vinos)
-            {
-                if (v.tieneReseñaSommelier(desde, hasta))
-                {
-                    _vinosConReseña.Add(v);
-                }                      
-            }
-
-            if (_vinosConReseña.Count == 0)
-            {
-                MessageBox.Show("No hay vinos con reseñas de sommelier en las fechas especificadas. El programa se cerrará.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Environment.Exit(0);
-            }
-        }   
     }
 }

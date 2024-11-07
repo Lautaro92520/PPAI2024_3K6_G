@@ -30,11 +30,11 @@ namespace PPAIDSI.Dominio
             this.varietales = varietales;
         }
 
-        public bool tieneReseñaSommelier(DateTime desde, DateTime hasta)
+        public bool tieneReseñaSommelier(DateTime fechaD, DateTime fechaH)
         {
             foreach (Reseña r in this.reseñas)
             {
-               if (r.sosDePeriodo(desde, hasta))
+               if (r.sosDePeriodo(fechaD, fechaH))
                {
                     if (r.sosDeSommelier())
                     {
@@ -61,6 +61,7 @@ namespace PPAIDSI.Dominio
                     }
                 }                      
             }
+
             return calcularPromedio(puntaje, cantidad);          
         }
 
@@ -79,13 +80,14 @@ namespace PPAIDSI.Dominio
             return this.precioARS;
         }
 
-        public List<string> getBodega()
+        public Bodega getBodega()
         {
-            string nombre = this.bodega.getNombre();
-            string region = this.bodega.getRegion();
-            string pais = this.bodega.getPais();
-            List<string> list = new List<string> { nombre, region, pais };
-            return list;
+            return this.bodega;
+        }
+
+        public RegionVitivinicola getRegion()
+        {
+            return this.bodega.getRegion();
         }
 
         public string getDescripcionVarietales()

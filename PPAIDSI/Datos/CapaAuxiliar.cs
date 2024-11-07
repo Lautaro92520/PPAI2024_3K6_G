@@ -14,9 +14,9 @@ using SystemDateTime = System.DateTime;
 
 namespace PPAIDSI.Datos
 {
-    public class CapaAuxiliar
+    public static class CapaAuxiliar
     {
-        public List<Vino> GetVinoByFilter(string nombre)
+        public static List<Vino> GetVinoByFilter(string nombre)
         {
             List<Vino> lista = new List<Vino>();
             string query = "SELECT * FROM Vino WHERE 1=1";
@@ -46,7 +46,69 @@ namespace PPAIDSI.Datos
             return lista;
         }
 
-        public List<Varietal> GetVarietalesByIdVino(int id)
+        public static List<Pais> GetPaises()
+        {
+            List<Pais> lista = new List<Pais>();
+            string query = "SELECT * FROM Pais";
+
+            List<Parametro> parametros = new List<Parametro>();
+
+            DataTable resultado = HelperDB.GetInstance().ConsultaSQL(query);
+            foreach (DataRow row in resultado.Rows)
+            {
+                string nom = row["nombre"].ToString();
+                List<Provincia> provincias = GetProvinciaByIdPais((int)row["id"]);
+                Pais pais = new Pais(nom, provincias);
+                lista.Add(pais);
+            }
+
+            return lista;
+        }
+
+        private static List<Provincia> GetProvinciaByIdPais(int id)
+        {
+            List<Provincia> provincias = new List<Provincia>();
+            string query = "SELECT * From Provincia WHERE Id_Pais = " + id;
+
+            List<Parametro> parametros = new List<Parametro>();
+            parametros.Add(new Parametro("@id_pais", id));
+
+            DataTable resultado = HelperDB.GetInstance().ConsultaSQL(query, parametros);
+
+            foreach (DataRow row in resultado.Rows)
+            {
+                string nombre = row["nombre"].ToString();
+                List<RegionVitivinicola> regiones = GetRegionByIdProvincia((int)row["id"]);
+                Provincia provincia = new Provincia(nombre, regiones);
+                provincias.Add(provincia);
+            }
+
+            return provincias;
+
+        }
+
+        private static List<RegionVitivinicola> GetRegionByIdProvincia(int id)
+        {
+            List<RegionVitivinicola> regiones = new List<RegionVitivinicola>();
+            string query = "SELECT * FROM RegionVitivinicola WHERE id_provincia = " + id;
+
+            List<Parametro> parametros = new List<Parametro>();
+            parametros.Add(new Parametro("@id_provincia", id));
+
+            DataTable resultado = HelperDB.GetInstance().ConsultaSQL(query, parametros);
+
+            foreach (DataRow row in resultado.Rows)
+            {
+                string nombre = row["nombre"].ToString();
+                string desc = row["descripcion"].ToString();
+                RegionVitivinicola region = new RegionVitivinicola(nombre, desc);
+                regiones.Add(region);
+            }
+
+            return regiones;
+        }
+
+        public static List<Varietal> GetVarietalesByIdVino(int id)
         {
             List<Varietal> varietales = new List<Varietal>();
             string query = "SELECT * FROM Varietal WHERE Id_Vino =" + id;
@@ -67,7 +129,7 @@ namespace PPAIDSI.Datos
             return varietales;
         }
 
-        public TipoUva GetTipoUvaById(int id)
+        public static TipoUva GetTipoUvaById(int id)
         {
             TipoUva tipoUva = new TipoUva();
             string query = "SELECT * FROM TipoUva WHERE id = " + id;
@@ -87,7 +149,7 @@ namespace PPAIDSI.Datos
             return tipoUva;
         }
 
-        public Bodega GetBodegaById(int id)
+        public static Bodega GetBodegaById(int id)
         {
             Bodega bodega = new Bodega();
             string query = "SELECT * FROM Bodega WHERE id = " + id;
@@ -111,7 +173,7 @@ namespace PPAIDSI.Datos
             return bodega;
         }
 
-        public RegionVitivinicola GetRegionById(int id)
+        public static RegionVitivinicola GetRegionById(int id)
         {
             RegionVitivinicola region = new RegionVitivinicola();
             string query = "SELECT * FROM RegionVitivinicola WHERE id = " + id;
@@ -125,53 +187,13 @@ namespace PPAIDSI.Datos
             {
                 string desc = row["descripcion"].ToString();
                 string nombre = row["nombre"].ToString();
-                Provincia prov = GetProvinciaById((int)row["id_provincia"]);
-                RegionVitivinicola reg = new RegionVitivinicola(nombre, desc, prov);
+                RegionVitivinicola reg = new RegionVitivinicola(nombre, desc);
                 region = reg;
             }
             return region;
         }
 
-        public Provincia GetProvinciaById(int id)
-        {
-            Provincia provincia = new Provincia();
-            string query = "SELECT * FROM Provincia WHERE id = " + id;
-
-            List<Parametro> parametros = new List<Parametro>();
-            parametros.Add(new Parametro("@id", id));
-
-            DataTable resultado = HelperDB.GetInstance().ConsultaSQL(query, parametros);
-
-            foreach (DataRow row in resultado.Rows)
-            {
-                string nombre = row["nombre"].ToString();
-                Pais pais = GetPaisById((int)row["id_pais"]);
-                Provincia prov = new Provincia(nombre, pais);
-                provincia = prov;
-            }
-            return provincia;
-        }
-
-        public Pais GetPaisById(int id)
-        {
-            Pais pais = new Pais();
-            string query = "SELECT * FROM Pais WHERE id = " + id;
-
-            List<Parametro> parametros = new List<Parametro>();
-            parametros.Add(new Parametro("@id", id));
-
-            DataTable resultado = HelperDB.GetInstance().ConsultaSQL(query, parametros);
-
-            foreach (DataRow row in resultado.Rows)
-            {
-                string nombre = row["nombre"].ToString();
-                Pais oPais = new Pais(nombre);
-                pais = oPais;
-            }
-            return pais;
-        }
-
-        public List<Reseña> GetResenasByIdVino(int id)
+        public static List<Reseña> GetResenasByIdVino(int id)
         {
             List<Reseña> reseñas = new List<Reseña>();
             string query = "SELECT * FROM Resena WHERE id_vino Like '%" + id + "%'";
@@ -195,7 +217,7 @@ namespace PPAIDSI.Datos
             return reseñas;
         }
 
-        private Sommelier GetSommelierByID(int idR)
+        private static Sommelier GetSommelierByID(int idR)
         {
             Sommelier sommelier = new Sommelier();
             string query = "SELECT * FROM Sommelier WHERE id = " + idR;

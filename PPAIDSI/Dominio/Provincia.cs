@@ -1,20 +1,25 @@
-﻿namespace PPAIDSI.Dominio
+﻿
+namespace PPAIDSI.Dominio
 {
     public class Provincia
     {
         private string nombre { get; set; }
-        private Pais pais { get; set; }
+        private List<RegionVitivinicola> regiones { get; set; }
 
         public Provincia() { }
-        public Provincia(string nombre, Pais pais)
+        public Provincia(string nombre, List<RegionVitivinicola> regiones)
         { 
             this.nombre = nombre;
-            this.pais = pais; 
+            this.regiones = regiones; 
         }
 
-        public string getPais()
+        public bool esTuRegion(string regionN)
         {
-            return this.pais.getNombre();
+            foreach (RegionVitivinicola region in regiones)
+            {
+                if (region.getNombre() == regionN) {  return true; }
+            }
+            return false;
         }
     }
 }

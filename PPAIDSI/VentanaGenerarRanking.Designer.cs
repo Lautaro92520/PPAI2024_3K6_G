@@ -45,6 +45,7 @@
             rbtnPantalla = new RadioButton();
             button1 = new Button();
             btnSalir = new Button();
+            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             grbFechas.SuspendLayout();
             grbTipoRes.SuspendLayout();
             grbVisualizacion.SuspendLayout();
@@ -279,5 +280,6 @@
         private RadioButton rbtnPantalla;
         private Button button1;
         private Button btnSalir;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

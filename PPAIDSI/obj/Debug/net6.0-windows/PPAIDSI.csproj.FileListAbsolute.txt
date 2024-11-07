@@ -258,7 +258,6 @@ C:\Users\lauta\Escritorio\Facultadovich\4to\DSI\PPAI\PPAI2024_3K6_GN\PPAIDSI\bin
 C:\Users\lauta\Escritorio\Facultadovich\4to\DSI\PPAI\PPAI2024_3K6_GN\PPAIDSI\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
 C:\Users\lauta\Escritorio\Facultadovich\4to\DSI\PPAI\PPAI2024_3K6_GN\PPAIDSI\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\lauta\Escritorio\Facultadovich\4to\DSI\PPAI\PPAI2024_3K6_GN\PPAIDSI\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\Users\lauta\Escritorio\Facultadovich\4to\DSI\PPAI\PPAI2024_3K6_GN\PPAIDSI\obj\Debug\net6.0-windows\PPAIDSI.csproj.CopyComplete
 C:\Users\lauta\Escritorio\Facultadovich\4to\DSI\PPAI\PPAI2024_3K6_GN\PPAIDSI\obj\Debug\net6.0-windows\PPAIDSI.genruntimeconfig.cache
 C:\Users\lauta\Escritorio\Facultadovich\4to\DSI\PPAI\PPAI2024_3K6_GN\PPAIDSI\obj\Debug\net6.0-windows\ref\PPAIDSI.dll
 C:\Users\lauta\Escritorio\Facultadovich\4to\DSI\PPAI\PPAI2024_3K6_GN\PPAIDSI\bin\Debug\net6.0-windows\EPPlus.dll
@@ -423,3 +422,5 @@ C:\Users\Nico\Desktop\UTN\3 Año\DSI\PPAI\Implementacion\PPAI2024_3K6_G\PPAIDSI\
 C:\Users\Nico\Desktop\UTN\3 Año\DSI\PPAI\Implementacion\PPAI2024_3K6_G\PPAIDSI\obj\Debug\net6.0-windows\PPAIDSI.pdb
 C:\Users\Nico\Desktop\UTN\3 Año\DSI\PPAI\Implementacion\PPAI2024_3K6_G\PPAIDSI\obj\Debug\net6.0-windows\PPAIDSI.genruntimeconfig.cache
 C:\Users\Nico\Desktop\UTN\3 Año\DSI\PPAI\Implementacion\PPAI2024_3K6_G\PPAIDSI\obj\Debug\net6.0-windows\ref\PPAIDSI.dll
+C:\Users\lauta\Escritorio\Facultadovich\4to\DSI\PPAI\PPAI2024_3K6_GN\PPAIDSI\obj\Debug\net6.0-windows\PPAIDSI.sourcelink.json
+C:\Users\lauta\Escritorio\Facultadovich\4to\DSI\PPAI\PPAI2024_3K6_GN\PPAIDSI\obj\Debug\net6.0-windows\PPAIDSI.csproj.Up2Date
