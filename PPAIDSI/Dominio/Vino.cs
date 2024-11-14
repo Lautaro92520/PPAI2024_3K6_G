@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PPAIDSI.Servicios;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Policy;
@@ -28,46 +29,6 @@ namespace PPAIDSI.Dominio
             this.bodega = bodega;
             this.reseñas = res;
             this.varietales = varietales;
-        }
-
-        public bool tieneReseñaSommelier(DateTime fechaD, DateTime fechaH)
-        {
-            foreach (Reseña r in this.reseñas)
-            {
-               if (r.sosDePeriodo(fechaD, fechaH))
-               {
-                    if (r.sosDeSommelier())
-                    {
-                        return true;
-                    }
-               }
-            }
-            return false;
-        }
-
-        public double obtenerPromedio(DateTime desde, DateTime hasta)
-        {
-            float puntaje = 0;
-            int cantidad = 0;
-            foreach (Reseña r in this.reseñas)
-            {
-                if (r.sosDePeriodo(desde, hasta))
-                {
-                    if (r.sosDeSommelier())
-                    {
-                        int nota = r.getPuntaje();
-                        puntaje += nota;
-                        cantidad ++;
-                    }
-                }                      
-            }
-
-            return calcularPromedio(puntaje, cantidad);          
-        }
-
-        public double calcularPromedio(float puntaje, int cantidad)
-        {
-            return Math.Round(puntaje / cantidad, 1);
         }
 
         public string getNombre()
@@ -104,6 +65,11 @@ namespace PPAIDSI.Dominio
                 primero = false;
             }
             return descripciones;
+        }
+
+        public double calcularPuntaje(DateTime fechaDesde, DateTime fechaHasta, IEstrategiaReseñas estrategia)
+        {
+            return estrategia.calcularPuntaje(fechaDesde, fechaHasta, this.reseñas);
         }
     }
 }

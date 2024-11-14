@@ -85,7 +85,16 @@ namespace PPAIDSI.Servicios
 
         private void buscarVinos()
         {
-            _vinosConPromedio = _estrategia.buscarVinos(_fechaDesde, _fechaHasta);
+            double puntaje = 0;
+            List<Vino> vinos = CapaAuxiliar.GetVinoByFilter("");
+            foreach(Vino vino in vinos)
+            {
+                puntaje = vino.calcularPuntaje(_fechaDesde, _fechaHasta, _estrategia);
+                if (puntaje > 0)
+                {
+                    _vinosConPromedio.Add((vino, puntaje));
+                }
+            }
         }
 
         private void finCU()
@@ -128,6 +137,5 @@ namespace PPAIDSI.Servicios
         {
             _vinosConPromedioOrdenados = _vinosConPromedio.OrderByDescending(v => v.Item2).ToList();
         }
-
     }
 }

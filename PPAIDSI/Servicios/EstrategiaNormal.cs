@@ -1,6 +1,4 @@
-﻿using DocumentFormat.OpenXml.Wordprocessing;
-using PPAIDSI.Datos;
-using PPAIDSI.Dominio;
+﻿using PPAIDSI.Dominio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PPAIDSI.Servicios
 {
-    public class EstrategiaSommelier : IEstrategiaReseñas
+    public class EstrategiaNormal : IEstrategiaReseñas
     {
         public double calcularPuntaje(DateTime fechaD, DateTime fechaH, List<Reseña> reseñas)
         {
@@ -17,15 +15,12 @@ namespace PPAIDSI.Servicios
             int cantidad = 0;
 
             foreach (Reseña res in reseñas)
-            {
+            {     
                 if (res.sosDePeriodo(fechaD, fechaH))
                 {
-                    if (res.sosDeSommelier())
-                    {
-                        int nota = res.getPuntaje();
-                        puntaje += nota;
-                        cantidad++;
-                    }
+                    int nota = res.getPuntaje();
+                    puntaje += nota;
+                    cantidad++;
                 }
             }
 
@@ -42,4 +37,5 @@ namespace PPAIDSI.Servicios
             return Math.Round((double)puntaje / cantidad, 1);
         }
     }
+
 }

@@ -11,5 +11,11 @@ namespace PPAIDSI.Dominio
         private string nombre { get; set; }
         private string apellido { get; set; }
         private Image imagenPerfil { get; set; }
+        private List<Siguiendo> seguidos { get; set; }
+
+        public List<Siguiendo> getSeguidos()
+        {
+             return seguidos;
+        }
     }
 }

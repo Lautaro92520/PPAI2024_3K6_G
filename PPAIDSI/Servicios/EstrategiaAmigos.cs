@@ -1,6 +1,4 @@
-﻿using DocumentFormat.OpenXml.Wordprocessing;
-using PPAIDSI.Datos;
-using PPAIDSI.Dominio;
+﻿using PPAIDSI.Dominio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PPAIDSI.Servicios
 {
-    public class EstrategiaSommelier : IEstrategiaReseñas
+    public class EstrategiaAmigos : IEstrategiaReseñas
     {
         public double calcularPuntaje(DateTime fechaD, DateTime fechaH, List<Reseña> reseñas)
         {
@@ -20,11 +18,19 @@ namespace PPAIDSI.Servicios
             {
                 if (res.sosDePeriodo(fechaD, fechaH))
                 {
-                    if (res.sosDeSommelier())
+                    if (res.sosDeEnofilo())
                     {
-                        int nota = res.getPuntaje();
-                        puntaje += nota;
-                        cantidad++;
+                        Enofilo enofilo = res.getEnofilo();
+                        List<Siguiendo> seguidos = enofilo.getSeguidos(); 
+                        foreach (Siguiendo seguido in seguidos)
+                        {
+                            if(seguido.sosDeAmigo())
+                            {
+                                int nota = res.getPuntaje();
+                                puntaje += nota;
+                                cantidad++;
+                            }
+                        }
                     }
                 }
             }

@@ -136,4 +136,34 @@ INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_enofilo, 
 INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_enofilo, id_vino) VALUES ('Refrescante y afrutado, excelente para el verano.', 0, '2024-05-18', 4, 2, 10);
 INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_enofilo, id_vino) VALUES ('Intenso y con buen cuerpo.', 1, '2024-05-17', 5, 3, 11);
 INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_enofilo, id_vino) VALUES ('Sutil y elegante, con notas de frutas rojas.', 0, '2024-05-16', 4, 4, 12);
+
+INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Sabor intenso y equilibrado', 0, '2024-02-03 14:20:45', 4, 6, 4);
+INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Fresco y afrutado', 1, '2024-03-22 10:15:30', 3, 2, 5);
+INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Textura rica y suave', 0, '2024-04-05 09:45:20', 4, 1, 7);
+INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Muy refrescante', 1, '2024-05-11 16:40:12', 5, 4, 3);
+INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Persistente en boca', 0, '2024-06-07 11:24:50', 2, 8, 9);
+INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Delicado y floral', 1, '2024-07-19 08:35:24', 4, 5, 6);
+INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Equilibrio perfecto', 0, '2024-08-14 17:50:31', 5, 10, 2);
+INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Sutil toque de madera', 1, '2024-09-03 19:10:43', 3, 7, 10);
+INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Aroma profundo', 0, '2024-10-25 15:55:18', 4, 9, 11);
+INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Ligeramente dulce', 1, '2024-11-09 14:30:52', 5, 12, 1);
+INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Sabor complejo', 0, '2024-01-20 13:45:39', 3, 3, 12);
+INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Toque cítrico', 1, '2024-02-15 09:05:47', 4, 6, 5);
+INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Notas de especias', 0, '2024-03-30 20:10:22', 5, 2, 7);
+INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Taninos suaves', 1, '2024-04-21 18:25:36', 3, 8, 4);
+INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Final largo', 0, '2024-05-07 08:45:10', 4, 11, 9);
+INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Frutal y fresco', 1, '2024-06-29 12:00:15', 5, 5, 2);
+INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Excelente cuerpo', 0, '2024-07-12 14:34:28', 2, 10, 6);
+INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Muy aromático', 1, '2024-08-23 09:10:55', 4, 1, 8);
+INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Equilibrio notable', 0, '2024-09-19 11:20:45', 5, 7, 3);
+INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Notas de chocolate', 1, '2024-10-13 19:15:30', 3, 4, 11);
+INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Final persistente', 0, '2024-11-02 13:40:18', 4, 9, 10);
+INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Muy bien estructurado', 1, '2024-01-18 18:05:09', 5, 12, 5);
+INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Cuerpo medio', 0, '2024-02-27 16:22:37', 3, 6, 1);
+INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Fresco y ligero', 1, '2024-03-08 17:15:50', 4, 2, 4);
+INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Notas herbales', 0, '2024-04-16 10:55:22', 2, 8, 7);
+INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Muy frutal', 1, '2024-05-28 15:40:10', 5, 3, 9);
+INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Acidez balanceada', 0, '2024-06-15 14:22:33', 4, 11, 6);
+INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Buena estructura', 1, '2024-07-05 09:10:48', 3, 10, 12);
+INSERT INTO Resena (comentario, es_premium, fecha_reseña, puntaje, id_sommelier, id_vino) VALUES ('Ligero en boca', 0, '2024-08-21 19:30:55', 5, 5, 8);
 GO

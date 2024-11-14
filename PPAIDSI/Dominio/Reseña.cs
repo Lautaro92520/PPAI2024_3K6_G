@@ -20,9 +20,9 @@
         }
 
 
-        public bool sosDePeriodo(DateTime desde, DateTime hasta)
+        public bool sosDePeriodo(DateTime fechaD, DateTime fechaH)
         {
-            return this.fechaReseña > desde && this.fechaReseña < hasta;
+            return this.fechaReseña > fechaD && this.fechaReseña < fechaH;
         }
 
         public bool sosDeSommelier()
@@ -33,6 +33,16 @@
         public int getPuntaje()
         {
             return this.puntaje;
+        }
+
+        public bool sosDeEnofilo()
+        {
+            return this.enofilo != null;
+        }
+
+        public Enofilo getEnofilo()
+        {
+            return this.enofilo;
         }
     }
 }

@@ -9,6 +9,6 @@ namespace PPAIDSI.Servicios
 {
     public interface IEstrategiaReseñas
     {
-        public List<(Vino, double)> buscarVinos(DateTime fechaD, DateTime fechaH);
+        public double calcularPuntaje(DateTime fechaD, DateTime fechaH, List<Reseña> reseñas);
     }
 }
